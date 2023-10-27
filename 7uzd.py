@@ -1,9 +1,9 @@
 x = int(input("X: "))
 y = int(input("y: "))
 
-if x > -1 and x < 3 and y > -2 and y < 1:
+if x>-5 and x<2 and y >-1 and y<3:
     print("ieksa")
-elif x == -1 or x == 3 and y>= -2 and y <= 1:
+elif x == -5 or x == 2 and y>= -1 and y <= 3:
     print("uz robež līnijas ")
 else:
     print("Ārpus")        
