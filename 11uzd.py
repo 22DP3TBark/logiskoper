@@ -35,7 +35,7 @@ def check_coordinates(punkts_x, punkts_y: float) -> str:
     >>> check_coordinates(-4,3)
     'ārpuss'
     """
-    if punkts_x > -3 and punkts_x < 8.2 and punkts_y > 2 and punkts_y < 8 and punkts_y > 12 * punkts_x + 38 and punkts_y < 1.428571 * punkts_x + 13.714:
+    if punkts_x > -3 and punkts_x < 8.2 and punkts_y > 2 and punkts_y < 8 or punkts_y > 12 * punkts_x + 38 and punkts_y < 1.428571 * punkts_x + 13.714:
         return "iekšā"
     elif punkts_x == -3 or punkts_x == 8.2 or punkts_y == 2 or punkts_y == 8 or punkts_y == 12 * punkts_x + 38 or punkts_y == 1.428571 * punkts_x + 13.714:
         return "uz līnijas"
@@ -44,4 +44,13 @@ def check_coordinates(punkts_x, punkts_y: float) -> str:
 
    
 doctest.testmod(verbose=True)
-    
+
+punkts_x = float(input("Ievadiet x Koordināti: "))
+punkts_y = float(input("Ievadiet y Koordināti: "))
+
+if punkts_x > -3 and punkts_x < 8.2 and punkts_y > 2 and punkts_y < 8 or punkts_y > 12 * punkts_x + 38 and punkts_y < 1.428571 * punkts_x + 13.714:
+    print("iekšā")
+elif punkts_x == -3 or punkts_x == 8.2 or punkts_y == 2 or punkts_y == 8 or punkts_y == 12 * punkts_x + 38 or punkts_y == 1.428571 * punkts_x + 13.714:
+    print("uz līnijas")
+else:
+    print("ārpuss")
