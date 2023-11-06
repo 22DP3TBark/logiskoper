@@ -1,9 +1,3 @@
-"""
-Autors:  Indrīķis Teodors Barkāns
-DP2-3
-Programma pārbauda punkta koordinates figurai. Trapeces koordinātes ir -3;2, -2,5;8 , 4;8, 8,2;2 
-"""
- 
 import doctest
 
 def check_coordinates(punkts_x, punkts_y: float) -> str:
@@ -34,13 +28,25 @@ def check_coordinates(punkts_x, punkts_y: float) -> str:
     'uz līnijas'
     >>> check_coordinates(-4,3)
     'ārpuss'
+    >>> check_coordinates(0,8)
+    'uz līnijas'
+    >>> check_coordinates(4,8)
+    'ārpuss'
+    >>> check_coordinates(-4,1)
+    'ārpuss'
+    >>> check_coordinates(3,2)
+    'iekšā'
     """
-    if punkts_x > -3 and punkts_x < 8.2 and punkts_y > 2 and punkts_y < 8 or punkts_y > 12 * punkts_x + 38 and punkts_y < 1.428571 * punkts_x + 13.714:
-        return "iekšā"
-    elif punkts_x == -3 or punkts_x == 8.2 or punkts_y == 2 or punkts_y == 8 or punkts_y == 12 * punkts_x + 38 or punkts_y == 1.428571 * punkts_x + 13.714:
-        return "uz līnijas"
+    funk=round(-(6/4.2)*punkts_x+13.714, 3)
+    funk2 = round(12*punkts_x+38, 3)
+    if punkts_x>=-3 and punkts_x<= 8.2 and punkts_y>=2 and  punkts_y<= 8 and  punkts_y<=funk and  punkts_y<=funk2:
+        if punkts_y==2 or punkts_y==8 or punkts_y==funk or punkts_y==funk2:
+            print('uz līnijas')
+        else:
+            print('iekšā')
     else:
-        return "ārpuss"
+        print('ārpuss')        
+   
 
    
 doctest.testmod(verbose=True)
@@ -48,9 +54,4 @@ doctest.testmod(verbose=True)
 punkts_x = float(input("Ievadiet x Koordināti: "))
 punkts_y = float(input("Ievadiet y Koordināti: "))
 
-if punkts_x > -3 and punkts_x < 8.2 and punkts_y > 2 and punkts_y < 8 or punkts_y > 12 * punkts_x + 38 and punkts_y < 1.428571 * punkts_x + 13.714:
-    print("iekšā")
-elif punkts_x == -3 or punkts_x == 8.2 or punkts_y == 2 or punkts_y == 8 or punkts_y == 12 * punkts_x + 38 or punkts_y == 1.428571 * punkts_x + 13.714:
-    print("uz līnijas")
-else:
-    print("ārpuss")
+check_coordinates(punkts_x, punkts_y)
